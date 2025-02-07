@@ -11,10 +11,48 @@ This project sets up a scalable and robust infrastructure for collecting and ana
 
 ## Components
 - **Terraform**: Manages cloud infrastructure.
+- **Networking**: NGINX Ingress for traffic management, VPC peering for security.
 - **Docker**: Containerizes applications.
+- **Compute**: Kubernetes cluster (EKS) to manage microservices.
+- **Processing**: AWS Lambda Functions for real-time data processing
 - **Kafka**: Manages data streams.
-- **PostgreSQL**: Stores temperature data.
+- **Storage**: S3/Storage for raw drone data, PostgreSQL for structured metadata.
+- **Auto-Scaling**: Kubernetes HPA (Horizontal Pod Autoscaler) based on CPU/memory utilization.
 - **Monitoring**: Tracks system health.
+
+## CI/CD Pipeline Setup
+
+- **CI/CD Workflow**:
+
+- **Version Control**: GitHub for source code management.
+
+- **CI/CD Tool**: ArgoCD for GitOps-driven continuous delivery.
+
+- **Build & Test**: Terraform for infrastructure as code, Helm for Kubernetes deployments.
+
+- **Automation**: GitHub Actions for pipeline automation.
+
+## Steps:
+
+Push code to repository.
+
+CI/CD pipeline triggers Terraform for infrastructure setup.
+
+Docker builds and pushes container images to a registry.
+
+ArgoCD applies Kubernetes manifests and Helm charts.
+
+Kubernetes deploys updated microservices.
+
+## Monitoring & Logging
+
+### Proposed Monitoring & Logging Stack:
+
+- **Metrics**: Prometheus & Grafana for performance monitoring.
+
+- **Logging**: ELK Stack (Elasticsearch, Logstash, Kibana) for log aggregation.
+
+- **Alerting**: Prometheus Alertmanager or PagerDuty for notifications.
 
 ## Future Enhancements
 - Implement CI/CD pipeline.
