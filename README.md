@@ -4,7 +4,7 @@
 This project sets up a scalable and robust infrastructure for collecting and analyzing real-time drone data (temperature, CO2 levels, etc.) for environmental analysis in the Cleantech industry. The solution leverages cloud resources, containerization, a CI/CD pipeline, and monitoring/logging to ensure efficient data handling and system health.
 
 ## Setup Instructions
-1. Clone the repository.
+1. [Clone the repository](https://github.com/Emmylong1/Drone-Data/tree/emmydev).
 2. Navigate to the `environments/staging & production` directory.
 3. Run `terraform init` and `terraform apply` to provision the infrastructure.
 
@@ -15,7 +15,6 @@ This project sets up a scalable and robust infrastructure for collecting and ana
 - **Docker**: Containerizes applications.
 - **Compute**: Kubernetes cluster (EKS) to manage microservices.
 - **Processing**: AWS Lambda Functions for real-time data processing
-- **Kafka**: Manages data streams.
 - **Storage**: S3/Storage for raw drone data, PostgreSQL for structured metadata.
 - **Auto-Scaling**: Kubernetes HPA (Horizontal Pod Autoscaler) based on CPU/memory utilization.
 - **Monitoring**: Tracks system health.
