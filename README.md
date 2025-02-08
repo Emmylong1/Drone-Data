@@ -3,7 +3,7 @@
 ## Overview
 This project sets up a scalable and robust infrastructure for collecting and analyzing real-time drone data (temperature, CO2 levels, etc.) for environmental analysis in the Cleantech industry. The solution leverages cloud resources, containerization, a CI/CD pipeline, and monitoring/logging to ensure efficient data handling and system health.
 
-![image alt](https://github.com/Emmylong1/Drone-Data/image.png)
+![image alt](https://github.com/Emmylong1/Drone-Data/blob/29b7ead546a629ad45b4830091956baeaf86db67/image.png)
 
 ## Setup Instructions
 1. [Clone the repository](https://github.com/Emmylong1/Drone-Data/tree/emmydev).
