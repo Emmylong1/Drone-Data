@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from typing import List, Dict
-from app.processor import process_data
+from processor import process_data
 
 app = FastAPI()
 
