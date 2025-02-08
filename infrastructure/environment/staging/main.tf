@@ -50,6 +50,18 @@ module "lambda_processor" {
   lambda_s3_key    = "lambda.zip"
 }
 
+module "database" {
+  source             = "../../modules/database"
+  allocated_storage  = 20
+  engine_version     = "13.3"
+  instance_class     = "db.t3.medium"
+  db_name            = "mydatabase"
+  username           = "admin"
+  password           = "mypassword"
+  subnet_ids         = module.network.private_subnets
+  security_group_ids = [aws_security_group.rds_sg.id]
+}
+
 module "s3" {
   source = "../../modules/s3"
 }
