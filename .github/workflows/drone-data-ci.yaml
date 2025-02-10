@@ -26,7 +26,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t app/Dockerfile .
+          docker build -t emmylong1/drone-data:v1 -f app/Dockerfile app/
         env:
           DOCKER_BUILDKIT: 1
 
