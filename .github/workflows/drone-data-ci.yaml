@@ -26,7 +26,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t Dockerfile:v1 .
+          docker build -t drone-data:v1 https://github.com/Emmylong1/Drone-Data.git#emmydev
         env:
           DOCKER_BUILDKIT: 1
 
