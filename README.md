@@ -16,7 +16,7 @@ This project sets up a scalable and robust infrastructure for collecting and ana
 - **Networking**: NGINX Ingress for traffic management, VPC peering for security.
 - **Docker**: Containerizes applications.
 - **Compute**: Kubernetes cluster (EKS) to manage microservices.
-- **Streaming Data**: AWS Kinesis for real-time data ingestion and processing.
+- **Streaming Data**: AWS Kinesis for real-time data ingestions and processing.
 - **Processing**: AWS Lambda Functions for real-time data processing
 - **Storage**: S3/Storage for raw drone data, PostgreSQL for structured metadata.
 - **Auto-Scaling**: Kubernetes HPA (Horizontal Pod Autoscaler) based on CPU/memory utilization.
