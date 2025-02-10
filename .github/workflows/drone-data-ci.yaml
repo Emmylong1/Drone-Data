@@ -17,10 +17,10 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -43,19 +43,28 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/drone-data:v1
 
-  code_quality:
-    name: "Static Code Analysis"
+  analyze:
+    name: "CodeQL Analysis"
     runs-on: ubuntu-latest
-    needs: build
+    timeout-minutes: 360
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'python' ]
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: python
+          languages: ${{ matrix.language }}
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
@@ -63,12 +72,12 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: "/language:python"
+          category: "/language:${{ matrix.language }}"
 
   terraform:
     name: "Terraform Deployment"
     runs-on: ubuntu-latest
-    needs: [build, code_quality]
+    needs: [build, analyze]
     environment: production
 
     permissions:
