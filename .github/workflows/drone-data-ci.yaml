@@ -26,14 +26,17 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t drone-data:v1 https://github.com/Emmylong1/Drone-Data.git#emmydev
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/drone-data:v1 .
         env:
           DOCKER_BUILDKIT: 1
 
-      - name: Push to Docker Hub
+      - name: Login to Docker Hub
         run: |
           echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
-          docker push emmylong1/drone-data:v1
+
+      - name: Push to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/drone-data:v1
 
   code_quality:
     name: "Static Code Analysis"
