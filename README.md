@@ -63,3 +63,6 @@ Kubernetes deploys updated microservices.
 ## Troubleshooting
 - Check the logs in CloudWatch for ECS service issues.
 - Verify the IPFS daemon is running for data storage.
+
+
+
