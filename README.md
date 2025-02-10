@@ -61,7 +61,7 @@ Kubernetes deploys updated microservices.
 - Add automated IPFS storage.
 
 ## Troubleshooting
-- Check the logs in CloudWatch for ECS service issues.
+- Check the logs in grafana for Eks service issues.
 - Verify the IPFS daemon is running for data storage.
 
 
