@@ -24,15 +24,20 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Login to Docker Hub
+        run: |
+          echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
       - name: Build Docker Image
         run: |
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/drone-data:v1 .
         env:
           DOCKER_BUILDKIT: 1
 
-      - name: Login to Docker Hub
+      - name: Verify Docker Image Exists
         run: |
-          echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+          docker images
+          docker image inspect ${{ secrets.DOCKER_HUB_USERNAME }}/drone-data:v1
 
       - name: Push to Docker Hub
         run: |
