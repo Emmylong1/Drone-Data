@@ -7,9 +7,8 @@ This project sets up a scalable and robust infrastructure for collecting and ana
 
 ## Setup Instructions
 1. [Clone the repository](https://github.com/Emmylong1/Drone-Data/tree/emmydev).
-2. Navigate to the `environments/staging & production` directory.
-3. Run `terraform init` and `terraform apply` to provision the infrastructure.
-
+2. Navigate to the `drone-data-ingestion` directory.
+3. Run `deploy.py` to provision the entire infrastructure in one step, without manually running `terraform init` or `terraform apply`.
 
 ## Components
 - **Terraform**: Manages cloud infrastructure.
